@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface JBDictationRecognize : NSObject
+
++ (JBDictationRecognize *)instance;
+
+typedef void (^JBDictationCallback)(BOOL isDictationMode);
+@property (nonatomic, strong) JBDictationCallback callback;
+
++ (void)startCallbackNoteDictation:(void(^)(BOOL isDictation))isDictation;
 
 @end
